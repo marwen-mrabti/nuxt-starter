@@ -18,7 +18,6 @@ useHead({
 });
 
 const title = "Nuxt Recipes";
-
 const description = "find your favorite recipes and cook them with ease.";
 
 useSeoMeta({

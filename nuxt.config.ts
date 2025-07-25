@@ -52,7 +52,11 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    // keep the scheduled cleanup task
-    scheduledTasks: { "*/15 * * * *": ["shield:clean"] },
+    experimental: {
+      tasks: true,
+    },
+    scheduledTasks: {
+      "*/15 * * * *": ["shield:clean"], // clean the shield storage every 15 minutes
+    },
   },
 });
