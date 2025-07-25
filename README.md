@@ -1,6 +1,6 @@
 # 🚀 Nuxt Starter Template
 
-A modern, production-ready Nuxt 3 starter template with best practices, security, and developer experience in mind.
+A modern, production-ready Nuxt 4 starter template with best practices, security, and developer experience in mind.
 
 ## ✨ Features
 
@@ -45,7 +45,7 @@ A modern, production-ready Nuxt 3 starter template with best practices, security
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js (lts - 22.x)
 - pnpm (recommended) or npm/yarn
 
 ### Installation
