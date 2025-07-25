@@ -17,7 +17,6 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: "page", mode: "out-in" },
   },
-
   css: ["~/assets/css/main.css"],
   colorMode: {
     preference: "system", // light | dark | system

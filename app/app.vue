@@ -1,7 +1,9 @@
 <script setup lang="ts">
 const colorMode = useColorMode();
 
-const color = computed(() => (colorMode.value === "dark" ? "#1b1718" : "white"));
+const color = computed(() =>
+  colorMode.value === "dark" ? "#1b1718" : "white",
+);
 
 useHead({
   meta: [
@@ -16,6 +18,7 @@ useHead({
 });
 
 const title = "Nuxt Recipes";
+
 const description = "find your favorite recipes and cook them with ease.";
 
 useSeoMeta({
