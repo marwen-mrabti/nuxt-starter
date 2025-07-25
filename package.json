@@ -1,0 +1,45 @@
+{
+  "name": "nuxt-starter",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "prepare": "husky",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "dependencies": {
+    "@nuxt/eslint": "1.7.1",
+    "@nuxt/fonts": "0.11.4",
+    "@nuxt/icon": "1.15.0",
+    "@nuxt/image": "1.10.0",
+    "@nuxtjs/color-mode": "3.5.2",
+    "@tailwindcss/vite": "^4.1.11",
+    "nuxt": "^4.0.1",
+    "nuxt-api-shield": "0.8.2",
+    "nuxt-csurf": "1.6.5",
+    "tailwindcss": "^4.1.11",
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1",
+    "zod": "^4.0.10"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^5.0.0",
+    "@types/node": "^24.1.0",
+    "eslint": "^9.32.0",
+    "eslint-plugin-format": "^1.0.1",
+    "eslint-plugin-oxlint": "^1.8.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "typescript": "^5.8.3"
+  },
+  "lint-staged": {
+    "*": "pnpm lint"
+  }
+}

@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@import "./reset.css";
+@import "./scrollbar.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: "Geist", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+}
