@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import "./reset.css";
+@import "tailwindcss";
 @import "./scrollbar.css";
 
 @custom-variant dark (&:is(.dark *));

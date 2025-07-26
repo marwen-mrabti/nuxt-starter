@@ -116,8 +116,8 @@ useHead({
 </script>
 
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center px-4">
-    <div class="max-w-2xl w-full">
+  <div class="min-h-screen h-full w-full overflow-x-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center px-4">
+    <div class="max-w-2xl w-full py-6 space-y-8">
       <!-- Main Error Card -->
       <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
         <!-- Header -->
@@ -140,7 +140,7 @@ useHead({
                 </svg>
               </div>
             </div>
-            <div class="!ml-2 ">
+            <div class="[shape-outside:circle(50%)]">
               <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
                 {{ error.statusCode || 'Error' }}
               </h1>
@@ -231,7 +231,7 @@ useHead({
       </div>
 
       <!-- Development Mode Error Details -->
-      <div v-if="isDev && (error.stack || error.data)" class="mt-6">
+      <div v-if="isDev && (error.stack || error.data)" class="">
         <div class="bg-gray-900 rounded-2xl shadow-xl overflow-hidden">
           <div class="bg-yellow-500 px-6 py-3">
             <div class="flex items-center">
