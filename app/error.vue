@@ -122,7 +122,7 @@ useHead({
       <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
         <!-- Header -->
         <div class="bg-red-50 dark:bg-red-900/20 px-8 py-6 border-b border-red-100 dark:border-red-800/30">
-          <div class="flex items-center space-x-4">
+          <div class="w-full flex items-center space-x-4">
             <div class="flex-shrink-0">
               <div class="w-12 h-12 bg-red-100 dark:bg-red-900/50 rounded-full flex items-center justify-center">
                 <svg
@@ -140,7 +140,7 @@ useHead({
                 </svg>
               </div>
             </div>
-            <div>
+            <div class="!ml-2 ">
               <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
                 {{ error.statusCode || 'Error' }}
               </h1>
