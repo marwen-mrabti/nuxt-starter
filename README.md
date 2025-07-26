@@ -92,6 +92,8 @@ pnpm lint:fix         # Fix ESLint issues
 
 Create a `.env` file in the root directory:
 
+- .env variables validation using zod
+
 ```env
 # Add your environment variables here
 NUXT_SECRET_KEY=your-secret-key-here

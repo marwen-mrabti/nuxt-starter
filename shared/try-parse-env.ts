@@ -21,7 +21,7 @@ export default function tryParseEnv<T extends ZodRawShape>(EnvSchema: ZodObject<
     }
     catch (error) {
       if (error instanceof ZodError) {
-        const message = z.prettifyError(error);
+        const message = z.flattenError(error);
         throw new Error(`Environment variable validation failed:\n${message}`);
       }
       if (error instanceof Error) {
