@@ -175,6 +175,7 @@ pnpm act push
 - **[Oxlint Documentation](https://oxc.rs/docs/guide/usage/linter.html)**
 - **[Zod Documentation](https://zod.dev/)**
 - **[pnpm Documentation](https://pnpm.io/)**
+- **[Sentry Documentation](https://docs.sentry.io/platforms/javascript/guides/nuxt/)**
 
 ## 🙏 Acknowledgments
 

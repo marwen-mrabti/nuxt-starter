@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
 
-import "./shared/env";
+import env from "./shared/env";
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
@@ -14,12 +14,15 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "nuxt-api-shield",
     "nuxt-csurf",
+    "@sentry/nuxt/module",
   ],
 
   app: {
     pageTransition: { name: "page", mode: "out-in" },
   },
+
   css: ["~/assets/css/main.css"],
+
   colorMode: {
     preference: "system", // light | dark | system
     fallback: "dark",
@@ -60,5 +63,18 @@ export default defineNuxtConfig({
     scheduledTasks: {
       "*/15 * * * *": ["shield:clean"], // clean the shield storage every 15 minutes
     },
+  },
+
+  sentry: {
+    sourceMapsUploadOptions: {
+      org: env.SENTRY_ORG,
+      project: env.SENTRY_PROJECT,
+    },
+
+    autoInjectServerSentry: "top-level-import",
+  },
+
+  sourcemap: {
+    client: "hidden",
   },
 });

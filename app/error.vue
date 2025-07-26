@@ -12,7 +12,7 @@ type ErrorProps = {
 };
 
 const props = defineProps<ErrorProps>();
-const router = useRouter();
+
 // Check if we're in development mode
 const isDev = import.meta.dev;
 
@@ -91,7 +91,7 @@ function getErrorMessage(): string {
 // Navigation methods
 function goBack(): void {
   if (window.history.length > 1) {
-    router.back();
+    window.history.back();
   }
   else {
     navigateTo("/");

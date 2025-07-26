@@ -7,6 +7,7 @@
         to="/"
         class="mr-auto"
         prefetch-on="interaction"
+        replace
       >
         <h2>
           <span class="text-primary text-2xl font-bold">home</span>
