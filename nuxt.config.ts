@@ -1,21 +1,39 @@
+/* eslint-disable node/no-process-env */
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
-
-import env from "./shared/env";
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: [
-    "@nuxt/eslint",
-    "@nuxt/fonts",
-    "@nuxt/icon",
-    "@nuxt/image",
-    "@nuxtjs/color-mode",
-    "nuxt-api-shield",
-    "nuxt-csurf",
-    "@sentry/nuxt/module",
-  ],
+  modules: ["@nuxt/eslint", "@nuxt/fonts", "@nuxt/icon", "@nuxt/image", "@nuxtjs/color-mode", "nuxt-api-shield", "nuxt-csurf", "@sentry/nuxt/module", "@pinia/nuxt"],
+
+  runtimeConfig: {
+  // Private keys (server-only)
+    nodeEnv: process.env.NODE_ENV || "development",
+    sentryAuthToken: process.env.SENTRY_AUTH_TOKEN,
+    auth: {
+      betterAuthSecret: process.env.BETTER_AUTH_SECRET,
+      githubClientSecret: process.env.AUTH_GITHUB_CLIENT_SECRET,
+      googleClientSecret: process.env.AUTH_GOOGLE_CLIENT_SECRET,
+    },
+    db: {
+      devUrl: process.env.DEV_DB_URL || "file:./dev.db",
+      turso: {
+        url: process.env.TURSO_DATABASE_URL,
+        authToken: process.env.TURSO_AUTH_TOKEN,
+      },
+    },
+
+    // Public keys (available on client)
+    public: {
+      sentryDsn: process.env.NUXT_PUBLIC_SENTRY_DSN,
+      auth: {
+        betterAuthUrl: process.env.NUXT_PUBLIC_BETTER_AUTH_URL,
+        githubClientId: process.env.NUXT_PUBLIC_AUTH_GITHUB_CLIENT_ID,
+        googleClientId: process.env.NUXT_PUBLIC_AUTH_GOOGLE_CLIENT_ID,
+      },
+    },
+  },
 
   app: {
     pageTransition: { name: "page", mode: "out-in" },
@@ -67,8 +85,8 @@ export default defineNuxtConfig({
 
   sentry: {
     sourceMapsUploadOptions: {
-      org: env.SENTRY_ORG,
-      project: env.SENTRY_PROJECT,
+      org: process.env.SENTRY_ORG,
+      project: process.env.SENTRY_PROJECT,
     },
 
     autoInjectServerSentry: "top-level-import",

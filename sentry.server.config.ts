@@ -1,9 +1,8 @@
+/* eslint-disable node/no-process-env */
 import * as Sentry from "@sentry/nuxt";
 
-import env from "./shared/env";
-
 Sentry.init({
-  dsn: env.NUXT_PUBLIC_SENTRY_DSN,
+  dsn: process.env.SENTRY_DSN,
 
   // We recommend adjusting this value in production, or using tracesSampler
   // for finer control

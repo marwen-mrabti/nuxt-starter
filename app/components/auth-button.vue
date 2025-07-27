@@ -1,0 +1,72 @@
+<script lang="ts" setup>
+import { useAuthStore } from "~/store/auth-store";
+
+const authStore = useAuthStore();
+const { user, pending } = storeToRefs(authStore);
+</script>
+
+<template>
+  <div v-if="!pending && user" class="flex gap-4 items-center">
+    <div class="relative group">
+      <div
+        tabindex="0"
+        class="border-2 border-blue-500 rounded-full cursor-pointer"
+      >
+        <div v-if="!!user?.image" class="w-12 h-12">
+          <button class="w-12 h-12 rounded-full overflow-hidden">
+            <img
+              :src="user.image"
+              :alt="user.name"
+              class="w-full h-full object-cover rounded-full"
+            >
+          </button>
+        </div>
+        <div v-else class="w-12 h-12 bg-gray-600 text-white rounded-full flex items-center justify-center">
+          <span class="text-sm font-medium">{{ user.name.charAt(0).toUpperCase() }}</span>
+        </div>
+      </div>
+
+      <!-- Dropdown Menu -->
+      <ul
+        class="absolute right-0 top-full mt-2 w-52 bg-white rounded-lg shadow-lg border border-gray-200 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+      >
+        <li>
+          <button
+            class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150"
+            @click="authStore.signOut"
+          >
+            Sign Out
+            <Icon name="tabler:logout-2" size="24" />
+          </button>
+        </li>
+        <li>
+          <NuxtLink
+            to="/dashboard"
+            class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150"
+          >
+            Dashboard
+            <Icon name="tabler:dashboard" size="24" />
+          </NuxtLink>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <button
+    v-else
+    :disabled="pending"
+    class="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+    @click="authStore.signIn"
+  >
+    Sign In With Github
+    <span
+      v-if="pending"
+      class="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"
+    />
+    <Icon
+      v-else
+      name="tabler:brand-github"
+      size="24"
+    />
+  </button>
+</template>

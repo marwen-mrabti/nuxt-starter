@@ -25,3 +25,6 @@ logs
 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# Ignore local dev database and related files
+dev.db*

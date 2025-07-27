@@ -9,9 +9,11 @@ useHead({
     <h1 class="text-4xl text-emerald-700">
       Start here
     </h1>
-    <button class="mt-4 rounded bg-blue-500 px-4 py-2 text-white">
-      build your app
-    </button>
-    <SentryTest />
+    <p class="text-lg text-gray-600">
+      This is a starter template for Nuxt 4 applications.
+    </p>
+    <p class="text-lg text-gray-600">
+      It includes basic routing, authentication, and a layout system.
+    </p>
   </div>
 </template>
