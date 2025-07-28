@@ -14,15 +14,11 @@ const { user, pending } = storeToRefs(authStore);
       >
         <div v-if="!!user?.image" class="h-12 w-12">
           <button class="h-12 w-12 overflow-hidden rounded-full">
-            <img
-              v-if="user?.image"
+            <NuxtImg
               :src="user.image"
               :alt="user.name"
               class="h-full w-full rounded-full object-cover"
-            >
-            <div v-else class="uppercase">
-              {{ user.name.chartAt(0) }}
-            </div>
+            />
           </button>
         </div>
         <div
@@ -35,7 +31,6 @@ const { user, pending } = storeToRefs(authStore);
         </div>
       </div>
 
-      <!-- Dropdown Menu -->
       <ul
         class="invisible absolute top-full right-0 z-50 mt-2 w-52 rounded-lg border border-gray-200 bg-white py-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100"
       >
