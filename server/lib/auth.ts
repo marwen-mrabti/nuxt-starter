@@ -45,7 +45,7 @@ export const auth = betterAuth({
   rateLimit: {
     window: 60, // 1 minute
     max: 100, // 100 requests per minute
-    storage: "database", // Use "database" for production with multiple instances
+    storage: "memory", // Use "database" for production with multiple instances
   },
 
   // Social providers configuration

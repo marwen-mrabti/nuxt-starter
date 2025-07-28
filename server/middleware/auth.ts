@@ -11,9 +11,16 @@ export default defineEventHandler(async (event) => {
   // Attach the user to the event context
   event.context.user = session?.user as unknown as T_User;
 
+  if (event.path === "/sign-in") {
+    if (session?.user) {
+      await sendRedirect(event, "/dashboard", 301);
+    }
+    return;
+  }
+
   if (AUTHED_ROUTES.has(String(event.path))) {
     if (!session?.user) {
-      await sendRedirect(event, "/", 301);
+      await sendRedirect(event, "/sign-in", 301);
     }
   }
 });

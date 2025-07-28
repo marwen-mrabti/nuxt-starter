@@ -31,13 +31,13 @@ const { user, pending } = storeToRefs(authStore);
         class="absolute right-0 top-full mt-2 w-52 bg-white rounded-lg shadow-lg border border-gray-200 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
       >
         <li>
-          <button
+          <NuxtLink
+            to="/sign-out"
             class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150"
-            @click="authStore.signOut"
           >
             Sign Out
             <Icon name="tabler:logout-2" size="24" />
-          </button>
+          </NuxtLink>
         </li>
         <li>
           <NuxtLink

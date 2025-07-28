@@ -6,9 +6,20 @@ export default defineNuxtRouteMiddleware(async (to, _from) => {
   const session = await authClient.useSession(useFetch);
   const user = session.data.value?.user;
 
-  if (AUTHED_ROUTES.has(String(to.path))) {
+  const currentPath = String(to.path);
+
+  // Handle sign-in page
+  if (currentPath === "/sign-in") {
+    if (user) {
+      return navigateTo("/dashboard");
+    }
+    return;
+  }
+
+  // Handle protected routes
+  if (AUTHED_ROUTES.has(currentPath)) {
     if (!user) {
-      return navigateTo("/");
+      return navigateTo("/sign-in");
     }
   }
 });
