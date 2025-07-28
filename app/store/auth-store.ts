@@ -14,12 +14,12 @@ export const useAuthStore = defineStore("auth-store", () => {
   const user = computed(() => session.value?.data?.user ?? null as T_User | null);
   const pending = computed(() => session.value?.pending ?? false);
 
-  async function signIn() {
+  async function signIn({ provider }: { provider: "github" | "google" }) {
     const { csrf } = useCsrf();
     const headers = new Headers();
     headers.append("csrf-token", csrf);
     await authClient.signIn.social({
-      provider: "github",
+      provider,
       callbackURL: "/dashboard",
       errorCallbackURL: "/error",
       fetchOptions: {

@@ -7,9 +7,9 @@ await authStore.init();
 
 <template>
   <div class="relative isolate container mx-auto max-w-7xl">
-    <div class="min-h-screen w-full bg-[#e6e4de] relative">
+    <div class="min-h-screen w-full bg-[#e4dede] relative">
       <div
-        class="absolute inset-0 z-0"
+        class="absolute inset-0 z-0 pointer-events-none"
         :style="{
           backgroundImage: `
         linear-gradient(to right, #d1d5db 1px, transparent 1px),
@@ -36,7 +36,7 @@ await authStore.init();
           </h2>
         </NuxtLink>
         <div class="flex items-center gap-4">
-          <AuthButton />
+          <UserButton />
         </div>
       </header>
       <main class="flex flex-1 flex-col items-center justify-center py-4">

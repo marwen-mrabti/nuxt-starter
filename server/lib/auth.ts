@@ -45,7 +45,7 @@ export const auth = betterAuth({
   rateLimit: {
     window: 60, // 1 minute
     max: 100, // 100 requests per minute
-    storage: "memory", // Use "database" for production with multiple instances
+    storage: "database", // Use "database" for production with multiple instances
   },
 
   // Social providers configuration
@@ -53,6 +53,10 @@ export const auth = betterAuth({
     github: {
       clientId: config.public.auth.githubClientId,
       clientSecret: config.auth.githubClientSecret,
+    },
+    google: {
+      clientId: config.public.auth.googleClientId,
+      clientSecret: config.auth.googleClientSecret,
     },
   },
 
