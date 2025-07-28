@@ -6,34 +6,43 @@ const { user, pending } = storeToRefs(authStore);
 </script>
 
 <template>
-  <div v-if="!pending && user" class="flex gap-4 items-center">
-    <div class="relative group">
+  <div v-if="!pending && user" class="flex items-center gap-4">
+    <div class="group relative">
       <div
         tabindex="0"
-        class="border-2 border-blue-500 rounded-full cursor-pointer"
+        class="cursor-pointer rounded-full border-2 border-blue-500"
       >
-        <div v-if="!!user?.image" class="w-12 h-12">
-          <button class="w-12 h-12 rounded-full overflow-hidden">
+        <div v-if="!!user?.image" class="h-12 w-12">
+          <button class="h-12 w-12 overflow-hidden rounded-full">
             <img
+              v-if="user?.image"
               :src="user.image"
               :alt="user.name"
-              class="w-full h-full object-cover rounded-full"
+              class="h-full w-full rounded-full object-cover"
             >
+            <div v-else class="uppercase">
+              {{ user.name.chartAt(0) }}
+            </div>
           </button>
         </div>
-        <div v-else class="w-12 h-12 bg-gray-600 text-white rounded-full flex items-center justify-center">
-          <span class="text-sm font-medium">{{ user.name.charAt(0).toUpperCase() }}</span>
+        <div
+          v-else
+          class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-600 text-white"
+        >
+          <span class="text-sm font-medium">{{
+            user.name.charAt(0).toUpperCase()
+          }}</span>
         </div>
       </div>
 
       <!-- Dropdown Menu -->
       <ul
-        class="absolute right-0 top-full mt-2 w-52 bg-white rounded-lg shadow-lg border border-gray-200 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+        class="invisible absolute top-full right-0 z-50 mt-2 w-52 rounded-lg border border-gray-200 bg-white py-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100"
       >
         <li>
           <NuxtLink
             to="/sign-out"
-            class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150"
+            class="flex w-full items-center justify-between px-4 py-2 text-gray-700 transition-colors duration-150 hover:bg-gray-100"
           >
             Sign Out
             <Icon name="tabler:logout-2" size="24" />
@@ -42,7 +51,7 @@ const { user, pending } = storeToRefs(authStore);
         <li>
           <NuxtLink
             to="/dashboard"
-            class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-150"
+            class="flex w-full items-center justify-between px-4 py-2 text-gray-700 transition-colors duration-150 hover:bg-gray-100"
           >
             Dashboard
             <Icon name="tabler:dashboard" size="24" />
@@ -56,7 +65,7 @@ const { user, pending } = storeToRefs(authStore);
     v-else
     :disabled="pending"
     to="/sign-in"
-    class="flex items-center gap-1 text-gray-700 hover:text-gray-900 transition-colors duration-200"
+    class="flex items-center gap-1 text-gray-700 transition-colors duration-200 hover:text-gray-900"
   >
     <Icon name="tabler:login-2" size="24" />
     Sign In

@@ -19,15 +19,7 @@ Sentry.init({
   replaysOnErrorSampleRate: 1.0,
 
   // Integrations to use
-  integrations: [
-    Sentry.replayIntegration(),
-    Sentry.vueIntegration({
-      tracingOptions: {
-        trackComponents: true,
-        timeout: 500, // milliseconds
-      },
-    }),
-  ],
+  integrations: [Sentry.replayIntegration()],
 
   // Enable logs to be sent to Sentry
   enableLogs: true,

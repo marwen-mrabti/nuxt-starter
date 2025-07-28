@@ -5,10 +5,20 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ["@nuxt/eslint", "@nuxt/fonts", "@nuxt/icon", "@nuxt/image", "@nuxtjs/color-mode", "nuxt-api-shield", "nuxt-csurf", "@sentry/nuxt/module", "@pinia/nuxt"],
+  modules: [
+    "@nuxt/eslint",
+    "@nuxt/fonts",
+    "@nuxt/icon",
+    "@nuxt/image",
+    "@nuxtjs/color-mode",
+    "nuxt-api-shield",
+    "nuxt-csurf",
+    "@sentry/nuxt/module",
+    "@pinia/nuxt",
+  ],
 
   runtimeConfig: {
-  // Private keys (server-only)
+    // Private keys (server-only)
     nodeEnv: process.env.NODE_ENV || "development",
     sentryAuthToken: process.env.SENTRY_AUTH_TOKEN,
     auth: {
@@ -26,11 +36,11 @@ export default defineNuxtConfig({
 
     // Public keys (available on client)
     public: {
+      baseUrl: process.env.BASE_URL,
       sentryDsn: process.env.NUXT_PUBLIC_SENTRY_DSN,
       auth: {
-        betterAuthUrl: process.env.NUXT_PUBLIC_BETTER_AUTH_URL,
-        githubClientId: process.env.NUXT_PUBLIC_AUTH_GITHUB_CLIENT_ID,
-        googleClientId: process.env.NUXT_PUBLIC_AUTH_GOOGLE_CLIENT_ID,
+        githubClientId: process.env.AUTH_GITHUB_CLIENT_ID,
+        googleClientId: process.env.AUTH_GOOGLE_CLIENT_ID,
       },
     },
   },

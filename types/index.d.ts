@@ -17,8 +17,8 @@ declare module "nuxt/schema" {
   };
   type PublicRuntimeConfig = {
     sentryDsn: string;
+    baseUrl: string;
     auth: {
-      betterAuthUrl: string;
       githubClientId: string;
       googleClientId: string;
     };

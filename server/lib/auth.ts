@@ -10,9 +10,7 @@ export const auth = betterAuth({
     provider: "sqlite",
   }),
 
-  // Base URL for auth endpoints
-  baseURL: config.public.auth.betterAuthUrl,
-  // Secret for signing tokens
+  baseURL: config.public.baseUrl,
   secret: config.auth.betterAuthSecret,
 
   // Session configuration
@@ -41,11 +39,11 @@ export const auth = betterAuth({
     },
   },
 
-  // Rate limiting
+  // Rate limiting to 100 requests per minute
   rateLimit: {
-    window: 60, // 1 minute
-    max: 100, // 100 requests per minute
-    storage: "memory", // Use "database" for production with multiple instances
+    window: 60,
+    max: 100,
+    storage: "database", // Use "memory" for in-memory storage (development or "database" for persistent storage (production)
   },
 
   // Social providers configuration
@@ -72,6 +70,19 @@ export const auth = betterAuth({
         return ctx.json(ctx.context.session);
       }
     }),
+  },
+
+  // Error handling
+  onAPIError: {
+    throw: true,
+    onError: (error, _ctx) => {
+      const err = error as { status?: number; message?: string };
+      throw createError({
+        statusCode: err.status || 500,
+        statusMessage: err.message || "Internal Server Error",
+      });
+    },
+    errorURL: "/error",
   },
 
   // Logging
