@@ -43,7 +43,7 @@ export const auth = betterAuth({
   rateLimit: {
     window: 60,
     max: 100,
-    storage: "database", // Use "memory" for in-memory storage (development or "database" for persistent storage (production)
+    storage: "memory", // Use "memory" for in-memory storage (development or "database" for persistent storage (production)
   },
 
   // Social providers configuration
