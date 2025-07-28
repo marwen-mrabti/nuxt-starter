@@ -1,20 +1,17 @@
-import type { T_User } from "~~/server/db/schema";
-
 import { authClient } from "~/lib/auth-client";
 
 export const useAuthStore = defineStore("auth-store", () => {
-  const session = useState<Awaited<
-    ReturnType<typeof authClient.getSession>
-  > | null>("session", () => null);
+  const session = ref<Awaited<ReturnType<typeof authClient.useSession>> | null>(
+    null,
+  );
 
   async function init() {
     const userSession = await authClient.useSession(useFetch);
     session.value = userSession;
-    return userSession;
   }
 
-  const user = computed(() => session.value?.data?.user as T_User | null);
-  const pending = computed(() => session.value?.pending ?? false);
+  const user = computed(() => session.value?.data?.user || null);
+  const pending = computed(() => session.value?.isPending || false);
 
   async function signIn({ provider }: { provider: "github" | "google" }) {
     const { csrf } = useCsrf();
