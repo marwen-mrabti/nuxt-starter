@@ -5,17 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: [
-    "@nuxt/eslint",
-    "@nuxt/fonts",
-    "@nuxt/icon",
-    "@nuxt/image",
-    "@nuxtjs/color-mode",
-    "nuxt-api-shield",
-    "nuxt-csurf",
-    "@sentry/nuxt/module",
-    "@pinia/nuxt",
-  ],
+  modules: ["@nuxt/eslint", "@nuxt/fonts", "@nuxt/icon", "@nuxt/image", "@nuxtjs/color-mode", "nuxt-api-shield", "nuxt-csurf", "@sentry/nuxt/module", "@pinia/nuxt", "@nuxtjs/seo"],
 
   runtimeConfig: {
     // Private keys (server-only)
@@ -61,6 +51,17 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
   },
 
+  experimental: {
+    defaults: {
+      nuxtLink: {
+        prefetchOn: {
+          interaction: true,
+          visibility: true,
+        },
+      },
+    },
+  },
+
   eslint: {
     config: {
       standalone: false,
@@ -69,8 +70,8 @@ export default defineNuxtConfig({
 
   nuxtApiShield: {
     limit: {
-      max: 12, // maximum requests per duration time, default is 12/duration
-      duration: 108, // duration time in seconds, default is 108 seconds
+      max: 100, // maximum requests per duration time, default is 12/duration
+      duration: 60, // duration time in seconds, default is 108 seconds
       ban: 3600, // ban time in seconds, default is 3600 seconds = 1 hour
       // If the request limit is exceeded, the user is banned for this period. During the ban, all requests are blocked with 429.
     },

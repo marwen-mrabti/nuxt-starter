@@ -25,9 +25,10 @@ export const auth = betterAuth({
 
   // Cookie configuration
   advanced: {
+    useSecureCookies: true,
     cookies: {
       sessionToken: {
-        name: "better-auth.session_token",
+        name: "auth_session-token",
         attributes: {
           httpOnly: true,
           secure: config.nodeEnv === "production",
@@ -42,7 +43,7 @@ export const auth = betterAuth({
   // Rate limiting to 100 requests per minute
   rateLimit: {
     window: 60,
-    max: 100,
+    max: 200,
     storage: "memory", // Use "memory" for in-memory storage (development or "database" for persistent storage (production)
   },
 
