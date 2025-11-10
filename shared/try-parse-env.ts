@@ -3,7 +3,10 @@ import type { ZodObject, ZodRawShape } from "zod";
 
 import { z, ZodError } from "zod";
 
-export default function tryParseEnv<T extends ZodRawShape>(EnvSchema: ZodObject<T>, buildEnv: Record<string, string | undefined> = process.env) {
+export default function tryParseEnv<T extends ZodRawShape>(
+  EnvSchema: ZodObject<T>,
+  buildEnv: Record<string, string | undefined> = process.env,
+) {
   if (import.meta.server) {
     try {
       const result = EnvSchema.safeParse(buildEnv);
@@ -25,7 +28,9 @@ export default function tryParseEnv<T extends ZodRawShape>(EnvSchema: ZodObject<
         throw new Error(`Environment variable validation failed:\n${message}`);
       }
       if (error instanceof Error) {
-        throw new TypeError(`An unexpected error occurred while parsing environment variables:\n${error.message}`);
+        throw new TypeError(
+          `An unexpected error occurred while parsing environment variables:\n${error.message}`,
+        );
       }
     }
   }

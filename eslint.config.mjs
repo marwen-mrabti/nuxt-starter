@@ -29,7 +29,7 @@ export default withNuxt(
           "error",
           {
             singleline: {
-              max: 2,
+              max: 4,
             },
             multiline: {
               max: 1,

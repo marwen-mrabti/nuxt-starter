@@ -10,7 +10,7 @@ const { user, pending } = storeToRefs(authStore);
     <div class="group relative">
       <div
         tabindex="0"
-        class="cursor-pointer rounded-full border-2 border-blue-500"
+        class="border-primary cursor-pointer rounded-full border-2"
       >
         <div v-if="!!user?.image" class="h-12 w-12">
           <button class="h-12 w-12 overflow-hidden rounded-full">
@@ -23,7 +23,7 @@ const { user, pending } = storeToRefs(authStore);
         </div>
         <div
           v-else
-          class="flex h-12 w-12 items-center justify-center rounded-full bg-gray-600 text-white"
+          class="bg-muted text-muted-foreground flex h-12 w-12 items-center justify-center rounded-full"
         >
           <span class="text-sm font-medium">{{
             user.name.charAt(0).toUpperCase()
@@ -32,12 +32,12 @@ const { user, pending } = storeToRefs(authStore);
       </div>
 
       <ul
-        class="invisible absolute top-full right-0 z-50 mt-2 w-52 rounded-lg border border-gray-200 bg-white py-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100"
+        class="border-border bg-primary-foreground invisible absolute top-full right-0 z-50 mt-2 w-52 rounded-lg border py-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100"
       >
         <li>
           <NuxtLink
             to="/sign-out"
-            class="flex w-full items-center justify-between px-4 py-2 text-gray-700 transition-colors duration-150 hover:bg-gray-100"
+            class="text-accent-foreground flex w-full items-center justify-between px-4 py-2 transition-colors duration-150 hover:bg-gray-100"
           >
             Sign Out
             <Icon name="tabler:logout-2" size="24" />
@@ -46,7 +46,7 @@ const { user, pending } = storeToRefs(authStore);
         <li>
           <NuxtLink
             to="/dashboard"
-            class="flex w-full items-center justify-between px-4 py-2 text-gray-700 transition-colors duration-150 hover:bg-gray-100"
+            class="text-accent-foreground hover:bg-accent/90 flex w-full items-center justify-between px-4 py-2 transition-colors duration-150"
           >
             Dashboard
             <Icon name="tabler:dashboard" size="24" />
@@ -60,7 +60,7 @@ const { user, pending } = storeToRefs(authStore);
     v-else
     :disabled="pending"
     to="/sign-in"
-    class="flex items-center gap-1 text-gray-700 transition-colors duration-200 hover:text-gray-900"
+    class="text-secondary-foreground hover:text-secondary-foreground/90 flex items-center gap-1 transition-colors duration-200"
   >
     <Icon name="tabler:login-2" size="24" />
     Sign In

@@ -8,11 +8,13 @@ export default defineConfig({
   casing: "snake_case",
   dialect: "turso",
   dbCredentials: {
-    url: process.env.NODE_ENV === "development"
-      ? process.env.DEV_DB_URL || "file:./dev.db"
-      : process.env.TURSO_DATABASE_URL!,
-    authToken: process.env.NODE_ENV === "development"
-      ? undefined
-      : process.env.TURSO_AUTH_TOKEN!,
+    url:
+      process.env.NODE_ENV === "development"
+        ? process.env.DEV_DB_URL || "file:./dev.db"
+        : process.env.TURSO_DATABASE_URL!,
+    authToken:
+      process.env.NODE_ENV === "development"
+        ? undefined
+        : process.env.TURSO_AUTH_TOKEN!,
   },
 });

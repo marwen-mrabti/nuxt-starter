@@ -5,7 +5,18 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ["@nuxt/eslint", "@nuxt/fonts", "@nuxt/icon", "@nuxt/image", "@nuxtjs/color-mode", "nuxt-api-shield", "nuxt-csurf", "@sentry/nuxt/module", "@pinia/nuxt", "@nuxtjs/seo"],
+  modules: [
+    "@nuxt/eslint",
+    "@nuxt/fonts",
+    "@nuxt/icon",
+    "@nuxt/image",
+    "@nuxtjs/color-mode",
+    "nuxt-api-shield",
+    "nuxt-csurf",
+    "@sentry/nuxt/module",
+    "@pinia/nuxt",
+    "@nuxtjs/seo",
+  ],
 
   runtimeConfig: {
     // Private keys (server-only)
@@ -52,6 +63,7 @@ export default defineNuxtConfig({
   },
 
   experimental: {
+    viewTransition: true,
     defaults: {
       nuxtLink: {
         prefetchOn: {

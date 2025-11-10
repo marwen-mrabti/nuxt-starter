@@ -39,22 +39,18 @@ const displayText = computed(() => {
 <template>
   <button
     :disabled="disabled || loading"
-    class="w-full flex justify-center items-center gap-2 px-4 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-bold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 hover:cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
+    class="border-border flex w-full items-center justify-center gap-2 rounded-md border px-4 py-3 text-sm font-bold shadow-sm transition-colors duration-200 hover:cursor-pointer focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
     :class="[props.class]"
     @click="handleClick"
   >
-    <Icon
-      v-show="icon && !loading"
-      :name="icon"
-      :size="iconSize"
-    />
+    <Icon v-show="icon && !loading" :name="icon" :size="iconSize" />
     <span>
       {{ displayText }}
     </span>
 
     <span
       v-show="loading"
-      class="w-6 h-6 border-2 border-invert border-t-transparent rounded-full animate-spin"
+      class="border-invert h-6 w-6 animate-spin rounded-full border-2 border-t-transparent"
     />
   </button>
 </template>

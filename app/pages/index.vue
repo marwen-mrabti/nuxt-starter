@@ -12,13 +12,13 @@ useHead({
 
 <template>
   <div class="flex w-full flex-1 flex-col items-center justify-center gap-6">
-    <h1 class="text-4xl text-emerald-700">
+    <h1 class="text-primary text-4xl">
       Start here
     </h1>
-    <p class="text-lg text-gray-600">
+    <p class="text-secondary-foreground text-lg">
       This is a starter template for Nuxt 4 applications.
     </p>
-    <p class="text-lg text-gray-600">
+    <p class="text-secondary-foreground text-lg">
       It includes basic routing, authentication, and a layout system.
     </p>
   </div>
