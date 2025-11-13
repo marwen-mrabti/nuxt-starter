@@ -57,7 +57,13 @@ git clone git@github.com:marwen-mrabti/nuxt-starter.git
 cd nuxt-starter
 ```
 
-2. Install dependencies:
+2. 1. update all dependencies:
+
+```bash
+npx taze -w
+```
+
+2. 2. Install dependencies:
 
 ```bash
 pnpm install

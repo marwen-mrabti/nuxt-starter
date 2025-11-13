@@ -127,7 +127,7 @@ useHead({
 
 <template>
   <div
-    class="flex h-full min-h-screen w-full items-center justify-center overflow-x-hidden bg-gradient-to-br from-gray-50 to-gray-100 px-4 dark:from-gray-900 dark:to-gray-800"
+    class="flex h-full min-h-screen w-full items-center justify-center overflow-x-hidden bg-linear-to-br from-gray-50 to-gray-100 px-4 dark:from-gray-900 dark:to-gray-800"
   >
     <div class="w-full max-w-2xl space-y-8 py-6">
       <!-- Main Error Card -->
@@ -139,7 +139,7 @@ useHead({
           class="border-b border-red-100 bg-red-50 px-8 py-6 dark:border-red-800/30 dark:bg-red-900/20"
         >
           <div class="flex w-full items-center space-x-4">
-            <div class="flex-shrink-0">
+            <div class="shrink-0">
               <div
                 class="flex h-12 w-12 items-center justify-center rounded-full bg-red-100 dark:bg-red-900/50"
               >
