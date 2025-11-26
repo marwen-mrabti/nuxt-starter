@@ -1,4 +1,4 @@
-import type { T_User } from "~~/server/db/schema";
+import type { T_User } from "~~/server/db/schema/auth";
 import type { H3Event, H3EventContext } from "h3";
 
 type AuthenticatedEvent = H3Event & {
@@ -18,6 +18,7 @@ export default function defineAuthenticatedEventHandler<T>(
         message: "User is not authenticated",
       });
     }
+
     // If the user is authenticated, proceed with the handler
     return handler(event as AuthenticatedEvent);
   });

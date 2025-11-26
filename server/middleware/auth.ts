@@ -1,4 +1,4 @@
-import type { T_User } from "~~/server/db/schema";
+import type { T_User } from "~~/server/db/schema/auth";
 
 import { auth } from "~~/server/lib/auth";
 import { AUTHED_ROUTES } from "~~/shared/constants";
@@ -13,6 +13,9 @@ export default defineEventHandler(async (event) => {
 
   if (event.path === "/sign-in") {
     if (session?.user) {
+      console.log(
+        "server middleware auth - sign-in route - redirecting to dashboard",
+      );
       await sendRedirect(event, "/dashboard", 301);
     }
     return;
@@ -20,6 +23,9 @@ export default defineEventHandler(async (event) => {
 
   if (AUTHED_ROUTES.has(String(event.path))) {
     if (!session?.user) {
+      console.log(
+        "server middleware auth - protected route - redirecting to sign-in",
+      );
       await sendRedirect(event, "/sign-in", 301);
     }
   }

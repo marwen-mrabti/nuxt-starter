@@ -2,6 +2,12 @@
 useHead({
   title: "Dashboard",
 });
+defineOgImageComponent("Nuxt", {
+  title: "Nuxt Starter | Dashboard",
+  description: "Private dashboard page",
+  theme: "#01aa00",
+  colorMode: "system",
+});
 </script>
 
 <template>

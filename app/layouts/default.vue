@@ -10,7 +10,7 @@ await authStore.init();
     class="bg-background relative isolate container mx-auto w-full max-w-7xl"
   >
     <header
-      class="sticky top-0 z-50 flex w-full items-center justify-between px-4 py-2"
+      class="bg-background/70 border-border sticky top-0 z-50 flex w-full items-center justify-between border-b px-4 py-2 backdrop-blur-md backdrop-saturate-150"
     >
       <NuxtLink to="/" class="mr-auto" prefetch-on="interaction" replace>
         <h2>

@@ -1,29 +1,43 @@
 <script setup lang="ts">
-const colorMode = useColorMode();
-const colorModes = ["light", "dark", "sepia"];
+import type { ThemeOption } from "~~/shared/constants";
 
-function toggleTheme(event: Event) {
-  const theme = (event.target as HTMLSelectElement).value;
-  if (!document.startViewTransition) {
-    console.error("View transitions not supported");
-    colorMode.preference = theme;
-  }
-  document.startViewTransition(() => {
-    colorMode.preference = theme;
-  });
+import { themeOptions } from "~~/shared/constants";
+
+function iconName(theme: ThemeOption) {
+  if (theme === "system")
+    return "i-ph-laptop";
+  if (theme === "light")
+    return "i-ph-sun";
+  if (theme === "dark")
+    return "i-ph-moon";
+  return "i-ph-coffee";
 }
 </script>
 
 <template>
   <div>
-    <select
-      class="text-card-foreground bg-card"
-      :value="colorMode.preference"
-      @change="(event) => toggleTheme(event)"
-    >
-      <option v-for="mode in colorModes" :key="mode" :value="mode">
-        {{ mode }}
-      </option>
-    </select>
+    <ul class="theme-toggle m-0 flex list-none gap-4 p-0">
+      <li
+        v-for="theme of themeOptions"
+        :key="theme"
+        class="cursor-pointer rounded-full p-2 transition-all duration-200 hover:brightness-110"
+        :class="{
+          preferred: !$colorMode.unknown && theme === $colorMode.preference,
+          selected: !$colorMode.unknown && theme === $colorMode.value,
+        }"
+      >
+        <Icon
+          :name="iconName(theme)"
+          class="size-6"
+          :class="{
+            'text-foreground size-8 font-extrabold opacity-100':
+              theme === $colorMode.value,
+            'text-muted-foreground font-medium opacity-60':
+              theme !== $colorMode.value,
+          }"
+          @click="$colorMode.preference = theme"
+        />
+      </li>
+    </ul>
   </div>
 </template>

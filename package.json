@@ -13,6 +13,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
+    "check": "pnpm run format && pnpm run lint:fix",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio"
@@ -61,8 +62,11 @@
       "@vercel/nft": "^0.27.10"
     },
     "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@sentry/cli",
       "@tailwindcss/oxide",
-      "esbuild"
+      "sharp",
+      "unrs-resolver"
     ]
   },
   "lint-staged": {

@@ -1,6 +1,7 @@
 <script setup>
 import { useAuthStore } from "~/store/auth-store";
 
+defineOgImageComponent();
 useHead({
   title: "Sign In",
   meta: [{ name: "description", content: "Sign in to your account" }],
