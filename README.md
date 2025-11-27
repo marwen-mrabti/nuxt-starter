@@ -81,7 +81,9 @@ pnpm dev
 
 ```bash
 # Development
+
 pnpm dev              # Start development server
+    # "dev": "concurrently 'pnpm run dev:db' 'nuxt dev'",
 pnpm build            # Build for production
 pnpm preview          # Preview production build
 pnpm generate         # Generate static site

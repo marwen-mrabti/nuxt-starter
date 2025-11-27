@@ -34,9 +34,11 @@ export const useAuthStore = defineStore("auth-store", () => {
     await authClient.signOut({
       fetchOptions: {
         headers,
+        onSuccess: () => {
+          navigateTo("/");
+        },
       },
     });
-    return navigateTo("/");
   }
 
   return { user, pending, init, signIn, signOut };

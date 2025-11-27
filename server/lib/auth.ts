@@ -9,7 +9,6 @@ export const auth = betterAuth({
   database: drizzleAdapter(db, {
     provider: "sqlite",
   }),
-
   baseURL: config.public.baseUrl,
   secret: config.auth.betterAuthSecret,
 
@@ -31,7 +30,8 @@ export const auth = betterAuth({
         name: "auth_session-token",
         attributes: {
           httpOnly: true,
-          secure: config.nodeEnv === "production",
+          // eslint-disable-next-line node/no-process-env
+          secure: process.env.NODE_ENV === "production",
           sameSite: "lax",
           path: "/",
           maxAge: 60 * 60 * 24 * 7, // 7 days

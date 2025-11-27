@@ -1,6 +1,5 @@
 declare module "nuxt/schema" {
   type RuntimeConfig = {
-    nodeEnv: string;
     sentryAuthToken: string;
     auth: {
       betterAuthSecret: string;

@@ -20,7 +20,6 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     // Private keys (server-only)
-    nodeEnv: process.env.NODE_ENV || "development",
     sentryAuthToken: process.env.SENTRY_AUTH_TOKEN,
     auth: {
       betterAuthSecret: process.env.BETTER_AUTH_SECRET,

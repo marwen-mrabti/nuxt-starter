@@ -12,7 +12,12 @@ await authStore.init();
     <header
       class="bg-background/70 border-border sticky top-0 z-50 flex w-full items-center justify-between border-b px-4 py-2 backdrop-blur-md backdrop-saturate-150"
     >
-      <NuxtLink to="/" class="mr-auto" prefetch-on="interaction" replace>
+      <NuxtLink
+        to="/"
+        class="mr-auto"
+        prefetch-on="interaction"
+        replace
+      >
         <h2>
           <span class="text-primary text-2xl font-bold">home</span>
         </h2>

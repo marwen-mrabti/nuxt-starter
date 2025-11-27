@@ -43,7 +43,11 @@ const displayText = computed(() => {
     :class="[props.class]"
     @click="handleClick"
   >
-    <Icon v-show="icon && !loading" :name="icon" :size="iconSize" />
+    <Icon
+      v-show="icon && !loading"
+      :name="icon"
+      :size="iconSize"
+    />
     <span>
       {{ displayText }}
     </span>

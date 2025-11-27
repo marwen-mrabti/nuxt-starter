@@ -1,6 +1,5 @@
 // @ts-check
 import antfu from "@antfu/eslint-config";
-import oxlint from "eslint-plugin-oxlint";
 
 import withNuxt from "./.nuxt/eslint.config.mjs";
 
@@ -16,12 +15,7 @@ export default withNuxt(
         semi: true,
         quotes: "double",
       },
-      ignores: [
-        ".pnpm-store/**",
-        "**/migrations/*",
-        "./node_modules/*",
-        "./app/components/ui/*",
-      ],
+      ignores: [".pnpm-store/**", "**/migrations/*", "./utils/seed-data.ts"],
     },
     {
       rules: {
@@ -29,7 +23,7 @@ export default withNuxt(
           "error",
           {
             singleline: {
-              max: 4,
+              max: 2,
             },
             multiline: {
               max: 1,
@@ -58,4 +52,4 @@ export default withNuxt(
       },
     },
   ),
-).append(...oxlint.configs["flat/recommended"]);
+);
