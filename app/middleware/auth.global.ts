@@ -19,9 +19,6 @@ export default defineNuxtRouteMiddleware(async (to, _from) => {
   // Handle protected routes
   if (AUTHED_ROUTES.has(currentPath)) {
     if (!user) {
-      console.log(
-        "client middleware auth - protected route - redirecting to sign-in",
-      );
       return navigateTo("/sign-in");
     }
   }
